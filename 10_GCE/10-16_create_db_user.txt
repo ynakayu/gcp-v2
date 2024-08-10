@@ -1,0 +1,17 @@
+// Cloud SQLに root ユーザーでログイン
+$ mysql -u root -p -h 10.x.x.x
+
+// WordPress 用の MySQL のユーザーを作成
+> create user 'wp-user'@'%' identified with mysql_native_password by 'パスワード';
+
+// wordpress データベースを、wp-user が使えるようにする
+> grant all on `wordpress`.* to 'wp-user'@'%';
+
+// 設定を反映
+> flush privileges;
+
+// wp-user でログインできるか、確認
+$ mysql -u wp-user -p -h 10.x.x.x
+
+// wordpress データベースが利用できるかも確認
+> mysql -u wp-user -p -h 10.x.x.x

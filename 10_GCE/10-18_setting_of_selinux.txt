@@ -1,0 +1,18 @@
+// SELinux が、有効になっているかどうかを確認
+$ getenforce
+
+// SELinux の設定状況を確認
+$ getsebool -a
+
+// httpd に関係するものだけに絞り込み
+$ getsebool -a | grep httpd_can_network_connect
+
+// 各設定を許可
+$ sudo setsebool -P httpd_can_network_connect on
+$ sudo setsebool -P httpd_can_network_connect_db on
+
+// 設定を確認
+$ getsebool -a | grep httpd_can_network_connect
+
+// wp-config.php を設定
+$ vim /var/www/html/wp-config.php

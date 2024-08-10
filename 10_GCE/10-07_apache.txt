@@ -1,0 +1,23 @@
+// ユーザーがどのグループに所属しているか確認
+$ groups
+
+// ユーザーを Apache グループに追加
+$ sudo usermod -a -G apache your-user-name
+
+// ユーザーがどのグループに所属しているか確認
+$ groups
+
+// "/var/www" ディレクトリのグループ所有権を apache グループに変更
+$ sudo chown -R your-user-name:apache /var/www
+
+// グループの書き込み許可を追加して、これから作成されるサブディレクトにグループを設定するには、/var/www とサブディレクトリの権限を変更
+$ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+
+// グループ書き込み許可を追加するために、/var/www とサブディレクトリのファイル許可を再帰的に変更
+$ find /var/www -type f -exec sudo chmod 0664 {} \;
+
+// PHP ファイルを作成
+$ echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+// phpinfo.php を削除
+$ rm /var/www/html/phpinfo.php

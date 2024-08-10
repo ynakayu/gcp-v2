@@ -1,0 +1,29 @@
+// wget のバージョンを確認
+$ wget --version
+
+// wget をインストール
+$ sudo dnf install -y wget 
+
+// WordPress をダウンロード
+$ wget https://ja.wordpress.org/latest-ja.tar.gz
+
+// ファイルを一覧表示
+$ ls
+
+// ファイルを展開
+$ tar -zxvf latest-ja.tar.gz
+
+// ファイルを一覧表示
+$ ls
+
+// ファイルを一覧表示
+$ ls  wordpress/
+
+// ファイルのコピー
+$ cp -r wordpress/* /var/www/html/
+
+// ファイルを一覧表示
+$ ls /var/www/html/
+
+
+

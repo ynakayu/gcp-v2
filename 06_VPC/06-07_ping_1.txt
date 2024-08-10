@@ -1,0 +1,8 @@
+// Cloud Shell → "my-asia-instance" への疎通確認
+$ ping "my-asia-instance の外部 IP アドレス"
+
+// Cloud Shell → "my-us-instance" への疎通確認
+$ ping "my-us-instance の外部 IP アドレス"
+
+// "my-asia-instance" → "my-us-instance" への疎通確認
+$ ping "my-us-instance の内部 IP アドレス"

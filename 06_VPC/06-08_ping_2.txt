@@ -1,0 +1,5 @@
+// "my-europe-instance" → "my-asia-instance" への疎通確認（内部）
+$ ping -w 5 "my-asia-instance の内部 IP アドレス"
+
+// "my-europe-instance" → "my-asia-instance" への疎通確認（外部）
+$ ping -w -5 "my-asia-instance の外部 IP アドレス"

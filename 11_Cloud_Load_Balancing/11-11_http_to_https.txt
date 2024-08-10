@@ -1,0 +1,28 @@
+// 手順1. MySQL にログイン
+$ mysql -u wp-user -p -h {Cloud SQL の内部 IP アドレス}
+
+// 手順2. wordpress データベースを使用する宣言
+> USE wordpress;
+
+// 手順3. 現状の設定を確認
+> SELECT * FROM wp_options WHERE option_name = 'home' OR option_name = 'siteurl';
+
+// 手順4. デフォルトの URL を変更
+> UPDATE wp_options SET option_value = 'https://test01.{各自で設定したドメイン名}' WHERE option_name = 'home' OR option_name = 'siteurl';
+
+// 手順5. 既に投稿されている記事のメタデータの URL を変更
+> UPDATE wp_posts SET guid = REPLACE(guid, 'http://<old-ip-address>',  'https://test01.{各自で設定したドメイン名}');
+
+> UPDATE wp_posts SET post_content = REPLACE(post_content, 'http://<old-ip-address>', 'https://test01.{各自で設定したドメイン名}');
+
+> UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, 'http://<old-ip-address>', 'https://test01.{各自で設定したドメイン名}');
+
+// 手順6. ウェブサイト側の設定を変更
+$ vim /var/www/html/wp-config.php
+
+// 以下を wp-config.php に追記
+$_SERVER['HTTPS'] = 'on';
+
+update_option( 'siteurl', 'https://test01.{各自で設定したドメイン名}' );
+
+update_option( 'home', 'https://test01.{各自で設定したドメイン名}' );

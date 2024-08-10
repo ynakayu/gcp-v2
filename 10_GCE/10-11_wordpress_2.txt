@@ -1,0 +1,2 @@
+// WordPress の設定ファイルを開く
+$ vim /var/www/html/wp-config.php

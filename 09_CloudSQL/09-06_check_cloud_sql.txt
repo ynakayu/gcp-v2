@@ -1,0 +1,27 @@
+// Cloud SQL インスタンスに接続(Cloud Shell)
+$ gcloud sql connect my-db-instance --user=root
+
+// データベースを作成
+> CREATE DATABASE mydb;
+
+// データベースを使用
+> USE mydb;
+
+// テーブルを作成
+> CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(255), email VARCHAR(255));
+
+// データベースにサンプルデータを挿入
+> INSERT INTO users (name, email) values ("Nakamura", "nakamura@example.com");
+
+// もう 1 件追加
+> INSERT INTO users (name, email) values ("Sato", "sato@example.com");
+
+// "users" テーブルのデータを全件抽出
+> SELECT * FROM users;
+
+// id=1 の名前のみ抽出
+> SELECT name FROM users where id=1;
+
+// MySQL からログアウト
+> exit
+

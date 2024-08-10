@@ -1,0 +1,20 @@
+// インストールされるバージョンを確認 
+$ dnf info httpd
+
+// httpd をインストール
+$ sudo dnf install -y httpd 
+
+// httpd のバージョンを確認
+$ httpd -v
+
+// httpd をスタート
+$ sudo systemctl start httpd 
+
+// httpd の起動ステータスを確認
+$ systemctl status httpd 
+
+// サーバ起動時に、httpd を自動起動する設定
+$ sudo systemctl enable httpd
+
+// httpd の自動起動設定を確認
+$ systemctl is-enabled httpd

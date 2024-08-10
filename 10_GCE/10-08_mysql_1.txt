@@ -1,0 +1,14 @@
+// MySQL サーバを起動
+$ sudo systemctl start mysqld
+
+// MySQL の起動の状態を確認
+$ sudo systemctl status mysqld
+
+// サーバ起動時に、自動起動する設定
+$ sudo systemctl enable mysqld
+
+// MySQL の root ユーザーの初期パスワードを取得
+$ sudo cat /var/log/mysqld.log | grep 'password'
+
+// MySQL の初期設定
+$ sudo mysql_secure_installation

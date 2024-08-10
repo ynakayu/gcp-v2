@@ -1,0 +1,29 @@
+// ソフトウェアのアップデートを実行
+$ sudo dnf update -y
+
+// インストールされるバージョンを確認
+$ dnf info httpd
+
+// インストール
+$ sudo dnf install -y httpd
+
+// バージョン確認
+$ httpd -v
+
+// Apache ウェブサーバを起動
+$ sudo systemctl start httpd
+
+// 起動ステータスを確認
+$ systemctl status httpd
+
+// Apacheサーバが起動したときに、自動起動
+$ sudo systemctl enable httpd
+
+// 自動起動設定を確認
+$ systemctl is-enabled httpd
+
+// ページに、Hello GCP と表示
+sudo sh -c "echo 'Hello GCP' >> /var/www/html/index.html"
+
+// index.html ファイルの確認
+$ cat /var/www/html/index.html

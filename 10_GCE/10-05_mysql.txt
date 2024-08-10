@@ -1,0 +1,17 @@
+// dnf アップデート
+$ sudo dnf update -y
+
+// MySQL リポジトリインストール
+$ sudo dnf install -y https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+
+// インストールされる、MySQL のバージョンを確認
+$ dnf info mysql-community-server
+
+// 新しい GPG キーをインポート(追加：2024/05/08)
+$ sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+
+// MySQL をインストール
+$ sudo dnf install -y mysql-community-server
+
+// MySQL のバージョンを確認
+$ mysqld --version

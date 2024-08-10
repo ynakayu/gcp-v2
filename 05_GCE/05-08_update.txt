@@ -1,0 +1,2 @@
+// dnf アップデートを実行
+$ sudo dnf update

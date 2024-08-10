@@ -1,0 +1,44 @@
+// データをエクスポート
+$ mysqldump -u root -p wordpress > export.sql
+
+// ファイルの一覧表示
+$ ls
+
+// SQL ファイルの内容を確認
+$ cat export.sql
+
+// Cloud SQL に接続
+$ mysql -u root -p -h xxx.xxx.xxx.xxx
+
+// データーベースを作成
+> CREATE DATABASE wordpress;
+
+// ログアウト
+> exit
+
+// データのインポート
+$ mysql -u root -p -h xxx.xxx.xxx.xxx wordpress < export.sql
+
+// Cloud SQL に接続
+$ mysql -u root -p -h xxx.xxx.xxx.xxx
+
+// データベース一覧を表示
+> show databases;
+
+// データベース wordpress を選択
+> use wordpress;
+
+// テーブルを表示
+> show tables;
+
+// ログアウト
+> exit
+
+// ローカル MySQL を停止
+$ sudo systemctl stop mysqld
+
+// ローカルの MySQL サーバーの自動起動設定を無効化
+$ sudo systemctl disable mysqld
+
+// MySQL の起動ステータス確認
+$ sudo systemctl status mysqld

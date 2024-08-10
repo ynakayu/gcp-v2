@@ -1,0 +1,47 @@
+// インストールされるバージョンを確認 
+$ dnf info httpd
+
+// httpd をインストール
+$ sudo dnf install -y httpd 
+
+// httpd のバージョンを確認
+$ httpd -v
+
+// インストールされる php のバージョンを確認
+$ dnf info php
+
+// Remi リポジトリのインストール
+$ sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+
+// インストール可能な php のバージョンを確認
+$ sudo dnf module list php
+
+// モジュールをリセット
+$ sudo dnf module reset php -y
+
+// Remi リポジトリの php 8.3 を有効化
+$ sudo dnf module enable php:remi-8.3 -y
+
+// インストールされる php のバージョンを確認
+$ dnf info php
+
+// php と php-mysql をインストール
+$ sudo dnf install -y php php-mysql
+
+// php のバージョンを確認する
+$ php -v
+
+// php-mysql がインストールされたかを確認
+$ dnf list installed php-mysql*
+
+// httpd を起動
+$ sudo systemctl start httpd
+
+// httpd の起動ステータスを確認
+$ sudo systemctl status httpd
+
+// httpd を自動起動する設定
+$ sudo systemctl enable httpd
+
+// 自動起動の設定確認
+$ systemctl is-enabled httpd

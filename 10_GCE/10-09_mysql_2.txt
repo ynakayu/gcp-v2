@@ -1,0 +1,26 @@
+// MySQ にユーザー名とパスワードを指定してログイン
+$ mysql -u root -p
+
+// MySQL ユーザーを作成
+> create user 'wp-user'@'localhost' identified with mysql_native_password by 'YOUR-PASSWORD';
+
+// データーベースの作成 
+> create database `wordpress`;
+
+// 作成したデータベースを "wp-user" が使えるようにする
+> grant all on `wordpress`.* to 'wp-user'@'localhost';
+
+// 設定を反映
+> flush privileges;
+
+// ログアウト
+> exit
+
+// "wp-user" で MySQL にログイン
+$ mysql -u wp-user -p
+
+// データベース一覧を表示
+> show databases;
+
+// ログアウト
+> exit
