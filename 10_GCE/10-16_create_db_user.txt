@@ -14,4 +14,4 @@ $ mysql -u root -p -h 10.x.x.x
 $ mysql -u wp-user -p -h 10.x.x.x
 
 // wordpress データベースが利用できるかも確認
-> mysql -u wp-user -p -h 10.x.x.x
+> show databases;
